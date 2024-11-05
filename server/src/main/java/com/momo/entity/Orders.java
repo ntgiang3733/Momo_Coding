@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-@Entity(name = "orders")
-public class Order {
+@Entity
+public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,10 +23,10 @@ public class Order {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderDetail> orderDetails;
 
-    public Order() {
+    public Orders() {
     }
 
-    public Order(Long id, Date createdAt, Long totalPrice, Long remainMoney) {
+    public Orders(Long id, Date createdAt, Long totalPrice, Long remainMoney) {
         this.id = id;
         this.createdAt = createdAt;
         this.totalPrice = totalPrice;
